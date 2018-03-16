@@ -11,28 +11,20 @@
         <script>
             function makeName() {
                 var userName = $('#first_name').val() + " " + $('#last_name').val();
-                $('#contact').append('<div class="card namecard"><h1>' + userName + '</h1><h3>Click for description!</h3></div>');
+                $('#contact').append('<div class="card"><h1>' + userName + '</h1><h3>Click for description!</h3></div>');
             }
 
             $(document).ready(function(){
                 $('form').submit(function(){
                     makeName();
-                    $('input:not(#submit').val("");  
-                    $('#bio').val("");     
                     return false;
                 });
 
-                $(document).on('click', '.namecard', function(){
+                $(document).on('click', '.card', function(){
                     var desc = $('#bio').val();
-                    $(this).toggleClass('namecard biocard');
                     $(this).html('<p>' + desc + '</p>');
                 });
 
-                $(document).on('click', '.biocard', function(){
-                    var userName = $('#first_name').val() + " " + $('#last_name').val();
-                    $(this).toggleClass('namecard biocard');
-                    $(this).html('<h1>' + userName + '</h1><h3>Click for description!</h3>');
-                });                  
             });
         </script>
         <style>
