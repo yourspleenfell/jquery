@@ -16,7 +16,9 @@
 
             $(document).ready(function(){
                 $('form').submit(function(){
-                    makeName();                    
+                    makeName();
+                    $('input:not(#submit').val("");  
+                    $('#bio').val("");     
                     return false;
                 });
 
@@ -68,7 +70,9 @@
                 width: 550px;
                 height: 180px;
                 text-align: center;
-                background-color: red;
+                background-color: darkgrey;
+                border: 1px solid;
+                box-shadow: 2px 2px 2px grey;
             }
             h1 {
                 font-size: 36pt;
@@ -83,7 +87,7 @@
                     Last Name: <input type="text" id="last_name" placeholder="Last Name">
                     Description: 
                     <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
-                    <input type="submit" value="Add User">
+                    <input type="submit" value="Add User" id="submit">
                 </form>
             </div>
             <div id="contact">
