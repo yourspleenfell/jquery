@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>jQuery</title>
+        <meta charset="utf-8">
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function(){
+                $('h1').css('font-size', '50px');
+            });
+        </script>
+        <link rel="stylesheet" href="style1.css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="div1">
+                <h1>Hello World!</h1>
+                <p>Change on click</p><button class="button1">Button!</button>
+            </div>
+            <div id="div2">
+                <h2>Here we have another one</h2>
+                <p>Show matched elements</p>
+                <button class="button2">Button!!!</button> div!
+            </div>
+            <div id="div3">
+                <h3>And another...</h3>
+                <p>Hide the matched elements</p>
+                <button class="button3">Button!</button>
+            </div>
+            <div id="div4">
+                <h2>Hey hey hey~~~~</h2>
+                <button class="button4">Toggle!</button>
+            </div>
+            <div id="div5">
+                <h1>Another div for you</h1>
+                <p>Click to slide down please</p>
+                <button class="button5">Slide!</button>
+            </div>
+            <div id="div6">
+                <h2>Once more~</h2>
+                <p>Click the button to slide up</p>
+                <button class="button6">Click me, click me~</button>
+            </div>
+            <div id="div7">
+                <h3>Here we have another one</h3>
+                <p>Click the button to slide toggle</p>
+                <button class="button7">Another button</button>
+            </div>
+        </div>
+        <script>  
+            $('.button1').click(function(){
+                $('h1').css('background-color', 'black');
+            });
+        </script>
+        <script>
+            $('.button2').click(function(){
+                $('#div1').show('p');
+            })
+        </script>
+        <script>
+            $('.button3').click(function(){
+                $('#div1').hide('p');
+            })
+        </script>
+        <script>
+            $('.button4').click(function(){
+                $('h2').toggle(function(){
+                    $('h2').css('color', 'orange');
+                })
+            })
+        </script>
+        <script>
+            $('.button5').click(function(){
+                if ($('#div5 h1').is(':hidden')) {
+                    $('#div5 h1').slideDown( 'slow' );
+                } else {
+                    $('#div5 h1').hide( 'p' );
+                }
+            })
+        </script>
+        <script>
+            $('.button6').click(function(){
+                if ($('#div6 p').is(':hidden')) {
+                    $('#div6 p').show('slow');
+                } else {
+                    $('#div6 p').slideUp('slow');
+                }
+            })
+        </script>
+        <script>
+            $('.button7').click(function(){
+                $('#div7 h3').slideToggle('slow');
+            })
+        </script>
+    </body>
+</html>

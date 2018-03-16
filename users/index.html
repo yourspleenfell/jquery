@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>User Form</title>
+        <meta charset="utf-8">
+        <style>
+            #wrapper {
+                width: 970px;
+                margin: auto;
+            }
+            h1 {
+                width: 350px;
+                border-bottom: 2px solid #999999;
+            }
+            table {
+                border: 1px solid #000;
+            }
+            thead {
+                font-weight: bold;
+            }
+            th {
+                padding-right: 40px;
+            }
+            #form {
+                display: block;
+                width: 280px;
+                text-align: right;
+                padding-left: 70px;
+            }
+            input {
+                margin-top: 5px;
+            }
+            #submit {
+                margin-top: 40px;
+            }
+        </style>
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+        </script>
+        <script>
+            $(document).ready(function(){
+                $('form').submit(function(){
+                    $('tbody').append('<tr><td></td><td></td><td></td><td></td></tr>');
+                    $('table tr:last td:nth-child(1)').html($('#first_name').val());
+                    $('table tr:last td:nth-child(2)').html($('#last_name').val());
+                    $('table tr:last td:nth-child(3)').html($('#email').val());
+                    $('table tr:last td:nth-child(4)').html($('#phone').val());
+                    $('input:not(#submit').val("");
+                    return false;
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email Address</th>
+                        <th>Contact #</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <h1>Add User</h1>
+            <div id="form">
+                <form action="process.php" method="post">
+                    First Name: <input type="text" name="first_name" id="first_name" placeholder="First Name">
+                    Last Name: <input type="text" name="last_name" id="last_name" placeholder="Last Name">
+                    Email Address: <input type="text" name="email" id="email" placeholder="Email Address">
+                    Contact No.: <input type="text" name="phone" id="phone" placeholder="Phone #">
+                    <input type="submit" value="Add User" id="submit">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

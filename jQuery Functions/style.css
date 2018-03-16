@@ -1,0 +1,52 @@
+body {
+    background-color: #414141;
+
+}
+h1 {
+    display: block;
+    color: lightgrey;
+    text-align: center;
+}
+#wrapper {
+    width: 1000px;
+    margin: auto;
+    padding: 15px;
+    background-color: #212121;
+    box-shadow: 0px 0px 20px;
+}
+
+button {
+    display: block;
+    background: linear-gradient(orange, orangered);
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 12pt;
+    box-shadow: 2px 2px 20px;
+    margin: 3% 50% 0% 45%;
+}
+p {
+    color: silver;
+    width: auto;
+    display: block;
+    margin: 0px 0px 20px 0px;
+    text-align: center;
+}
+div {
+    border-bottom: 4px solid;
+    border-color: #333333;
+}
+.red {
+    color: red;
+    font-style: italic;
+    border: 1px dashed;
+}
+.pic1 {
+    display: inline-block;
+    max-width: 150px;
+    margin: 0% 50% 0% 43%;
+}
+input {
+    margin: 0% 50% 0% 40%;
+}

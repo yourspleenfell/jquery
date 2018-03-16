@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Disappear On Hover</title>
+        <meta charset="utf-8">
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+        <style>
+            #wrapper {
+                width: 1075px;
+                padding: 10px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            h1 {
+                border-bottom: 3px solid darkgrey;
+            }
+            img {
+                max-width: 250px;
+            }
+            .image {
+                display: inline-block;
+                margin: 5px;
+            }
+        </style>
+        <script>
+            var changesrc = function () {
+                var $this = $(this);
+                var newsrc = $this.data('alt-src');
+                $this.data('alt-src', $this.attr('src'));
+                $this.attr('src', newsrc);
+                }
+            $(document).ready(function(){
+                $('img').hover(changesrc);
+            });
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Hover In/Out</h1>
+            <div class="image">
+                <img src="img/img0.jpg" alt="Shirt model" data-alt-src="img/img2.jpg">
+            </div>
+            <div class="image">
+                <img src="img/img3.jpg" alt="Shirt model" data-alt-src="img/img4.jpg">
+            </div>
+            <div class="image">
+                <img src="img/img5.jpg" alt="Shirt model" data-alt-src="img/img6.jpg">
+            </div>
+            <div class="image">
+                <img src="img/img7.jpg" alt="Shirt model" data-alt-src="img/img8.jpg">
+            </div>
+            <div class="image">
+                <img src="img/img2.jpg" alt="Shirt model" data-alt-src="img/img0.jpg">
+            </div>
+            <div class="image">
+                <img src="img/img4.jpg" alt="Shirt model" data-alt-src="img/img3.jpg">
+            </div>
+            <div class="image">
+                <img src="img/img6.jpg" alt="Shirt model" data-alt-src="img/img5.jpg">
+            </div>
+            <div class="image">
+                <img src="img/img8.jpg" alt="Shirt model" data-alt-src="img/img7.jpg">
+            </div>
+        </div>
+    </body>
+</html>

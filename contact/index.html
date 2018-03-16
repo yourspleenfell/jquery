@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Contact Card</title>
+        <meta charset="utf-8">
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+        </script>
+        <script>
+            function makeName() {
+                var userName = $('#first_name').val() + " " + $('#last_name').val();
+                $('#contact').append('<div class="card namecard"><h1>' + userName + '</h1><h3>Click for description!</h3></div>');
+            }
+
+            $(document).ready(function(){
+                $('form').submit(function(){
+                    makeName();                    
+                    return false;
+                });
+
+                $(document).on('click', '.namecard', function(){
+                    var desc = $('#bio').val();
+                    $(this).toggleClass('namecard biocard');
+                    $(this).html('<p>' + desc + '</p>');
+                });
+
+                $(document).on('click', '.biocard', function(){
+                    var userName = $('#first_name').val() + " " + $('#last_name').val();
+                    $(this).toggleClass('namecard biocard');
+                    $(this).html('<h1>' + userName + '</h1><h3>Click for description!</h3>');
+                });                  
+            });
+        </script>
+        <style>
+            #wrapper {
+                position: absolute;
+                width: 970px;
+                margin: auto;
+                background-color: lightgrey;
+            }
+            #userinput {
+                display: inline-block;
+                padding: 10px;
+                width: 300px;
+                text-align: left;
+                line-height: 30px;
+            }
+            input {
+                margin: 10px 15% 0px 0px;
+            }
+            #bio {
+                width: 245px;
+                height: 100px;
+                resize: none;
+            }
+            #contact{
+                display: inline-block;
+                vertical-align: top;
+                width: 600px;
+            }
+            .card {
+                position: relative;
+                vertical-align: top;
+                margin-top: 20px;
+                padding-top: 20px;
+                width: 550px;
+                height: 180px;
+                text-align: center;
+                background-color: red;
+            }
+            h1 {
+                font-size: 36pt;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="userinput">
+                <form action="process.php">
+                    First Name: <input type="text" id="first_name" placeholder="First Name">
+                    Last Name: <input type="text" id="last_name" placeholder="Last Name">
+                    Description: 
+                    <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
+                    <input type="submit" value="Add User">
+                </form>
+            </div>
+            <div id="contact">
+
+            </div>
+        </div>
+    </body>
+</html>

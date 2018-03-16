@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>jQuery</title>
+        <meta charset="utf-8">
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function(){
+                $('h1').css('font-size', '50px');
+            });
+        </script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="1">
+                <h1>Red Panda's Add Class</h1>
+                <p>Click the header to add class 'red' to this paragraph. It assigns a dotted red border to the div. Look! It has striped like a red panda!</p>
+            </div>
+            <div id="2">
+                <button id="b2">Slidetoggle</button>
+                <h1>Slidetoggle</h1>
+                <p>Click the button to slidetoggle a hidden image</p>
+                <img src="redpanda.jpg" alt"Baby red pandas, so cute!" class="pic1">
+            </div>
+            <div id="3">
+                <button id="b3">Append</button> 
+                <h1>Append</h1>
+                <p>Click the button to append a new paragraph!</p>
+            </div>
+            <div id="4">
+                <button id="b4">Hide</button>
+                <h1>Hide</h1>
+                <p>Click the button to hide the div</p>
+            </div>
+            <div id="5">
+                <button id="b5">Show</button>
+                <h1>Show</h1>
+                <p>Click the button to show the hidden div</p>
+            </div>
+            <div id="6">
+                <button id="b6">Toggle</button>
+                <h1>Toggle</h1>
+                <p>Click the button to toggle the first div and remove the border</p>
+            </div>
+            <div id="7">
+                <button id="b7">Slidedown</button>
+                <h1>Slidedown</h1>
+                <p>Click the button to make the previous div's header hide or slide down</p>
+            </div>
+            <div id="8">
+                <button id="b8">Slideup</button>
+                <h1>Slideup</h1>
+                <p>Click the button to make the previous div's header slide up or unhide</p>
+            </div>
+            <div id="9">
+                <h1>Fadein/out</h1>
+                <p>Hover over the dive the button to make an image fade in and out</p>
+                <img src="pounce.jpg" alt="Red panda pouncing" class="pic1">
+            </div>
+            <div id="10">
+                <button id="b10">Before</button>
+                <h1>Before</h1>
+                <p>Click the button to add a surprise before this paragraph!</p>
+            </div>
+            <div id="11">
+                <button id="b11">After</button>
+                <h1>After</h1>
+                <p>Click the button to add a surprise after this paragraph!</p>
+            </div>
+            <div id="12">
+                <button id="b12">HTML</button>
+                <h1>HTML</h1>
+                <p>Click the button to add some sweet HTML</p>
+            </div>
+            <div id="13">
+                <button id="b13">Attribute</button>
+                <h1>Attribute</h1>
+                <p>Click this button to change the 'src' attribute of the slidetoggle image!</p>
+            </div>
+            <div id="14">
+                <button id="b14">Value</button>
+                <h1>Value</h1>
+                <p>Click the button to grab the value from the dropdown list above.</p>
+                <script>
+                    function displayVals() {
+                        var fav = $( "#single" ).val();
+                        $( "p" ).html( "Favorite Thing: " + fav );
+                    }
+                    $( "select" ).change( displayVals );
+                        displayVals();
+                </script>
+            </div>
+            <div></div>
+            <div></div>
+        </div>
+        <script>
+            $('#1 h1').click(function(){
+                $('#1').addClass('red');
+            })
+
+            $('#b2').click(function(){
+                $('#2 img').slideToggle('slow');
+            })
+
+            $('#b3').click(function(){
+                $('#3 p').append(document.createTextNode(' Please give those baby red pandas some love!'));
+            })
+
+            $('#b4').click(function(){
+                $('#4').hide('slow');
+            })
+
+            $('#b5').click(function(){
+                $('#4').show('slow');
+            })
+
+            $('#b6').click(function(){
+                $('#1').toggle(function(){
+                    $('#1').css('border', 'none');
+                })
+            })
+
+            $('#b7').click(function(){
+                if ($('#6 h1').is(':hidden')) {
+                    $('#6 h1').slideDown( 'slow' );
+                } else {
+                    $('#6 h1').hide( 'p' );
+                }
+            })
+
+            $('#b8').click(function(){
+                if ($('#7 h1').is(':hidden')) {
+                    $('#7 h1').show('slow');
+                } else {
+                    $('#7 h1').slideUp('slow');
+                }
+            })
+
+            $('#9').hover(function(){
+                if ($('#9 img').is(':hidden')) {
+                    $('#9 img').fadeIn('100');
+
+                } else {
+                    $('#9 img').fadeOut('500');
+                }
+            })
+
+            $('#b10').click(function(){
+                $('#10 p').before('<img src="sprite.png" alt="Red panda sprite" class="pic1">');
+            })
+
+            $('#b11').click(function(){
+                $('#11 p').after('<img src="sprite.png" alt="Red panda sprite" class="pic1">');
+            })
+
+            $('#b12').click(function(){
+                $('#12').html('<p>What is your favorite thing about red pandas?<br><select><option value="cuteness">Cuteness</option><option value="stripes">Stripes</option><option value="everything">EVERYTHING!!!</option>');
+            })
+
+            $('#b13').click(function(){
+                $('#2 .pic1').attr({
+                    src: 'tree.jpg'
+                });
+            })
+
+            $('#b14').click(function(){
+
+            })
+        </script>
+    </body>
+</html>

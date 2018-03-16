@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Disappearig Act</title>
+        <link rel="stylesheet" href="style.css">
+        <meta charset="utf-8">
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+        </script>
+        <script>
+            $(document).ready(function(){
+                $('img').click(function(){
+                    $(this).hide();
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function(){
+                $('#reset').click(function(){
+                    $('img').show('slow');
+                })
+            })
+        </script>    
+        <style>
+        img {
+            max-width: 250px;
+            border: 3px solid darkgrey;
+            box-shadow: 3px 5px 10px #222222;
+        }
+        h1 {
+            width: 100%;
+            text-align: center;
+        }
+        #wrapper {
+            width: 1116px;
+            height: auto;
+            margin: auto;
+            background: linear-gradient( grey,white);
+        }
+        .picture {
+            display: inline-block;
+            margin: 10px;
+        }
+        #reset {
+            width: auto;
+            margin: 2% 50% 0% 47%;
+            padding: 5px 10px 5px 10px;
+            font-size: 12pt;
+            background: linearGradient(darkgrey, grey);
+        }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Look at them!</h1>
+            <div class="picture">
+                <img src="facepalm.jpg" alt="Red panda facepalming">
+            </div>
+            <div class="picture">
+                <img src="facepalm.jpg" alt="Red panda facepalming">
+            </div>
+            <div class="picture">
+                <img src="facepalm.jpg" alt="Red panda facepalming">
+            </div>
+            <div class="picture">
+                <img src="facepalm.jpg" alt="Red panda facepalming">
+            </div>
+            <div class="picture">
+                <img src="facepalm.jpg" alt="Red panda facepalming">
+            </div>
+            <div class="picture">
+                <img src="facepalm.jpg" alt="Red panda facepalming">
+            </div>
+            <div class="picture">
+                <img src="facepalm.jpg" alt="Red panda facepalming">
+            </div>
+            <div class="picture">
+                <img src="facepalm.jpg" alt="Red panda facepalming">
+            </div>
+            <div id="res">
+                <button id="reset">Reset!</button>
+            </div>
+        </div>
+    </body>
+</html>

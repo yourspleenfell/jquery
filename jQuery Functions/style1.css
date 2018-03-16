@@ -1,0 +1,20 @@
+body {
+    background-color: lightgrey;
+}
+#wrapper {
+    width: 1000px;
+    margin: auto;
+    background-color: lightgrey;
+    box-shadow: 0px 0px 20px;
+}
+h1 {
+    color: blue;
+}
+.div1 {
+    margin: auto;
+    width: 100%
+}
+.div2 {
+    margin: auto;
+    width: 100%
+}

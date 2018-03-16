@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css" type="text/css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+        body{margin: 5px;}
+        p{color: blue; margin:3px;}
+    </style>
+</head>
+ 
+<body>
+    <div class="row-fluid">
+        <form class="form-horizontal">
+            <fieldset>
+                <!-- Form Name -->
+                <legend> My Form</legend>
+ 
+                <!-- Text input-->
+                <div class="control-group">
+                    <label class="control-label" for="textinput">Text Input</label>
+                    <div class="controls">
+                        <input id="textinput" name="textinput" type="text" placeholder="Start typing" class="input" onkeyup="getVals(this, 'text');">
+                        <p id="pTextInput"></p>
+                    </div>
+                </div>
+ 
+                <!-- Textarea -->
+                <div class="control-group">
+                  <label class="control-label" for="textarea">Text Area</label>
+                  <div class="controls">
+                    <textarea id="textarea" name="textarea" onkeyup="getVals(this, 'textarea');"></textarea>
+                    <p id="pTextarea"></p>
+                  </div>
+                </div>
+ 
+                <!-- Multiple Radios -->
+                <div class="control-group">
+                    <label class="control-label" for="radios">Multiple Radios</label>
+                    <div class="controls">
+                        <label class="radio" for="radios-1">
+                            <input type="radio" name="radios" id="radios-1" value="Yes" onchange="getVals(this, 'radio');">
+                            Yes
+                        </label>
+                        <label class="radio" for="radios-0">
+                            <input type="radio" name="radios" id="radios-0" value="No" onchange="getVals(this, 'radio');" >
+                            No
+                        </label>
+                        <p id="pRadio"></p>
+                    </div>
+                </div>
+ 
+                <!-- Multiple Checkboxes -->
+                <div class="control-group">
+                    <label class="control-label" for="checkboxes">Multiple Checkboxes</label>
+                    <div class="controls">
+                        <label class="checkbox" for="checkboxes-1">
+                            <input type="checkbox" name="checkboxes" id="checkboxes-1" value="Yes"  onchange="getVals(this, 'checkbox');" >
+                            Yes
+                        </label>
+                        <label class="checkbox" for="checkboxes-0">
+                            <input type="checkbox" name="checkboxes" id="checkboxes-0" value="No"  onchange="getVals(this, 'checkbox');" >
+                            No
+                        </label>
+                        <p id="pCheckbox"></p>
+                  </div>
+                </div>
+ 
+                <!-- Select Basic -->
+                <div class="control-group">
+                    <label class="control-label" for="selectbasic">Select Basic</label>
+                    <div class="controls">
+                        <select id="selectbasic" name="selectbasic" class="input-xlarge" onchange="getVals(this, 'select');">
+                            <option value="1">Option one</option>
+                            <option value="2">Option two</option>
+                        </select>
+                        <p id="pSelect"></p>
+                  </div>
+                </div>
+ 
+                <!-- Select Multiple -->
+                <div class="control-group">
+                    <label class="control-label" for="selectmultiple">Select Multiple</label>
+                    <div class="controls">
+                        <select id="selectmultiple" name="selectmultiple" class="input-xlarge" multiple="multiple" onchange="getVals(this, 'multiselect');">
+                            <option value="1">Option one</option>
+                            <option value="2">Option two</option>
+                            <option value="3">Option three</option>
+                        </select>
+                        <p id="pMultiSelect"></p>
+                    </div>
+                </div>
+ 
+            </fieldset>
+        </form>
+    </div>
+ 
+    <script>
+        function getVals(formControl, controlType) {
+            switch (controlType) {
+                case 'text':
+                    // Get the value for a text input
+                    var value = $(formControl).val();
+                    $("#pTextInput").text(value);
+                    break;
+ 
+                case 'textarea':
+                    // Get the value for a textarea
+                    var value = $(formControl).val();
+                    $("#pTextarea").text(value);
+                    break;
+ 
+                case 'radio':
+                    // Get the value for a radio
+                    var value = $(formControl).val();
+                    $("#pRadio").text(value);
+                    break;
+ 
+                case 'checkbox':
+                    // Get name for set of checkboxes
+                    var checkboxName = $(formControl).attr('name');
+ 
+                    // Get all checked checkboxes
+                    var value = [];
+                    $("input[name*='" + checkboxName + "']").each(function () {
+                        // Get all checked checboxes in an array
+                        if (jQuery(this).is(":checked")) {
+                            value.push($(this).val());
+                        }
+                    });
+                    $("#pCheckbox").text(value.join(", "));
+                    break;
+ 
+                case 'select':
+                    // Get the value for a select
+                    var value = $(formControl).val();
+                    $("#pSelect").text(value);
+                    break;
+ 
+                case 'multiselect':
+                    // Get all selected options for the multiselect in an array or default to array
+                    var value = $(formControl).val() || [];
+                    $("#pMultiSelect").text(value.join(", "));
+                    break;
+            }
+        }
+    </script>
+</body>
